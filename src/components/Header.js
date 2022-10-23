@@ -13,7 +13,7 @@ function Header() {
     return (
         <>
             <Box sx={{ width: 1, height: 0.65, backgroundColor: "primary.main" }}>
-                <Typography container align="center" color="secondary" variant="h3">
+                <Typography align="center" color="secondary" variant="h3">
                     מערכת ניהול קורונה לקופת חולים
                 </Typography>
             </Box>

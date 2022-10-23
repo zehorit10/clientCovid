@@ -2,13 +2,27 @@ import React from "react";
 import useGet from "../../api/hooks/get";
 import UserCard from "./UserCard";
 import { useParams } from "react-router-dom";
-// import NewUser from "../NewUser";
 import {useNavigate} from 'react-router-dom';
 import { Grid, Stack, LinearProgress, Box, Button } from "@mui/material";
+// import {useState, useEffect} from 'react';
+// import SharchBar from "./SearchBar";
 
 function ListMembers() {
 
     let navigate = useNavigate();
+
+
+    // const [users, setUsers] = useState([]);
+    // const [searchResults, setSearchResults] = useState([]);
+
+    // useEffect(() => {
+    //     useGet("users").then((res) => {
+    //         setUsers(res);
+    //         return res; 
+    //     }).then((res) => {
+    //         setSearchResults(res);
+    //     })  
+    // },[])
 
     const { getData, data, loading, error } = useGet("users/");
 
@@ -24,10 +38,11 @@ function ListMembers() {
     }
 
     return (
-        <Grid container spacing={4} sx={{ my: 4 }}>
+        <Grid container spacing={4} padding={3} sx={{ my: 4 }}>
+
             <Button variant='contained' fullWidth onClick={() => navigate("../AddMembers")}>הוספת לקוח</Button>
-            
-            {data.map((u, i) => <Grid key={i} item xs={4}><UserCard user={u} /></Grid>)}
+            {/* <SharchBar users={users} setSearchResults={setSearchResults} /> */}
+            {data.map((u, i) => <Grid key={i} item xs={2}><UserCard user={u} /></Grid>)}
         </Grid>
     );
 }
