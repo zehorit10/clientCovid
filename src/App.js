@@ -1,25 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Routers from './Routers';
+
+import { CacheProvider } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme, {cacheRtl} from "./theme";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CacheProvider value={cacheRtl}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routers />
+      </ThemeProvider>
+    </CacheProvider>
   );
 }
 
